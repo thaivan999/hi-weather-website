@@ -20,4 +20,10 @@ export const Blog: CollectionConfig = {
       required: true,
     },
   ],
+  access: {
+    create: ({ req: { user } }) => !!user,
+    update: ({ req: { user } }) => !!user,
+    delete: ({ req: { user } }) => !!user,
+    read: () => true,
+  },
 }
